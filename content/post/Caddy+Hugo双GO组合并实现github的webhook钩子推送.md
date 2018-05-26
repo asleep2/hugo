@@ -13,9 +13,9 @@ url: "/archives/2018/0526"
 author: "3mile"
 
 #主页面缩略图,通常用帖子内图像
-cover: "https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/QQ截图20180526133351.jpg"
+cover: "https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/01.png"
 
-thumbnailImage: https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/QQ截图20180526133351.jpg
+thumbnailImage: https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/01.png
 # 封面图像相对路径
 coverImage: /cover/8.jpg
 #封面说明内容
