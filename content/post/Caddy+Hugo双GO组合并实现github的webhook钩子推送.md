@@ -283,22 +283,20 @@ git push origin master
 
 5. 然后修改/etc/caddy/Caddyfile文件
 
-6. ```
-   blog.3mile.top {
-   #tls mile3@gmail.com
-   
-   git github.com/mile3033/hugo . {
-   	repo github.com/mile3033/hugo
-   	path /var/www/hugo-blog
-   	hook /webhooks some-keys
-   	hook_type github
-   	then hugo --destination=/var/www/blog.3mile.top
-   	interval 600
-   }
+6. ```yaml
+blog.3mile.top {
+#tls mile3@gmail.com
+git github.com/mile3033/hugo . {
+	repo github.com/mile3033/hugo
+	path /var/www/hugo-blog
+	hook /webhooks some-keys
+	hook_type github
+	then hugo --destination=/var/www/blog.3mile.top
+	interval 600
+	}
    root /var/www/blog.3mile.top
-   }
-   
-   ```
+}
+```
 
    
 
