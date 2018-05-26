@@ -1,0 +1,280 @@
+# Tranquilpeak
+# Version : 0.4.3-BETA
+# Author : Thibaud Leprêtre
+
+# I STRONGLY recommend you to use a CDN to speed up loading of pages.
+# 我强烈建议您使用CDN来加快页面的加载速度。
+# There is many free CDN like Cloudinary or you can also use indirectly
+# 有许多像Cloudinary一样的免费CDN，或者您也可以间接使用
+# by using services like Google Photos.
+# 使用Google相册等服务
+
+# If you want to store images yourself, please read this guidelines:
+# 如果您想自己存储图片，请阅读本指南：
+# For users, if you only use this theme, put your images directly in `source/assets/images` folder
+# 对于用户，如果您只使用此主题，请将图像直接放在`source/assets/images`文件夹中
+# But if you want to add local images, you can put your images directly in `source/assets/images` folder
+# 但是如果你想添加本地图片，你可以直接将图片放在`source/assets/images`文件夹中
+# For developpers, if you modify this theme, put your images in `source/images` folder and
+# 对于开发者，如果你修改这个主题，把你的图片放在`source / images`文件夹中
+# use grunt task `build` to synchronize assets
+
+baseURL = "https://3mile.top/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "3mile博客"
+theme = "hugo-tranquilpeak-theme"
+disqusShortname = "3mile"
+googleAnalytics = "UA-117920425-2"
+paginate = 10
+hasCJKLanguage = true
+canonifyurls = true
+
+[permalinks]
+  post = "/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
+
+[author]
+  name = "3mile"
+  bio = "**无聊到**只有努力学习技术<br>**Email:**[mile3@live.cn](mailto:mile3@live.cn) "
+  job = "苦逼码农一枚"
+  location = "中国.成都"
+  # Your Gravatar email. Overwrite `author.picture` everywhere in the blog   您的Gravatar电子邮件。在博客的任何地方覆盖`author.picture`
+  #gravatarEmail = "mile3@live.cn"
+  # Your profile picture	你的头像
+  # Overwritten by your gravatar image if `author.gravatarEmail` is filled	如果`author.gravatarEmail`被填充，则被您的gravatar图片覆盖
+  # picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+    picture = "/img/a.jpg"
+  # Your Twitter username without the @. E.g : thibaudlepretre
+  twitter = "3mile1"
+  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
+  googlePlus = "+林林"
+
+# Menu Configuration
+[[menu.main]]
+  weight = 1
+  identifier = "home"
+  name = "主页"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
+  url = "/"
+[[menu.main]]
+  weight = 2
+  identifier = "categories"
+  name = "分类"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-bookmark\"></i>"
+  url = "/categories"
+[[menu.main]]
+  weight = 3
+  identifier = "tags"
+  name = "标签"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
+  url = "/tags"
+[[menu.main]]
+  weight = 4
+  identifier = "archives"
+  name = "档案"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+  url = "/archives"
+[[menu.main]]
+  weight = 5
+  identifier = "search"
+  name = "Search"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-search\"></i>"
+  url = "/#search"
+  class = "st-search-show-outputs"  
+[[menu.main]]
+  weight = 6
+  identifier = "about"
+  name = "关于"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
+  url = "/about"
+
+[[menu.links]]
+  weight = 1
+  identifier = "github"
+  name = "GitHub"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
+  url = "https://github.com/3mile"
+
+[[menu.links]]
+  weight = 2
+  identifier = "email"
+  name = "QQ to Me"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-envelope\"></i>"
+  url = "tencent://message/?uin=975714080"
+
+
+[[menu.misc]]
+  weight = 1
+  identifier = "rss"
+  name = "RSS"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
+  url = "/index.xml"
+
+[params]
+  # Customize date format use to render blog post date, categories and other
+  # 自定义日期格式用于呈现博客帖子日期，类别和其他
+  # You must use date format used by Go Time package https://golang.org/pkg/time/
+  # 您必须使用Go Time包使用的日期格式https://golang.org/pkg/time/
+  # Months (not work with short month like "jan", "feb", etc) are translated if translation exists on i18n folders
+  # 月份（不适用于像“jan”，“feb”等简短月份）在i18n文件夹中存在翻译时被翻译
+  # Default format is: January 2, 2006 
+  # 默认格式是：2006年1月2日
+   dateFormat = "2006 January 2"
+  # 
+
+  # Global keywords configuration. Following keywords will be add to every pages
+  # 全局关键字配置。以下关键字将被添加到每个页面
+  # keywords = ["development", "next-gen"]
+
+  # Syntax highlighter, possible choice between: "highlight.js" (recommanded) and "prism.js" (experimental)
+  # 语法highlighter，可能选择：“highlight.js”（推荐）和“prism.js”（实验）
+  # You can comment it to disable syntax highlighting
+  # 您可以对其进行注释以禁用语法高亮显示
+  syntaxHighlighter = "highlight.js"
+
+  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
+  # 在所有文章页面隐藏侧边栏，让文章充分展现阅读效果，欣赏宽广的图片和封面图片。 （true：启用，false：禁用）
+  clearReading = true
+
+  # Define categories will create hierarchy between parents: `categories = ["foo", "bar"]` will consider "bar" a sub-category of "foo". 
+  # 定义类别将在父母之间创建层次结构：`categories = [“foo”，“bar”]`会将“bar”视为“foo”的子类别。
+  # If false it will flat categories.
+  # 如果为false，则它将平坦分类。
+  hierarchicalCategories = false
+
+  description = "学习,总是使人进步"
+
+  # Customization定义
+  # Define the behavior of the sidebar 定义边栏的行为
+  # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
+  #    medium sidebar on medium screen and header bar on small screen and
+  # extra large sidebar is swiped on extra large screen and large sidebar on all lower screen (default)
+  # 1：在超大屏幕上显示超大的侧边栏，在大屏幕上显示大型侧边栏，
+  #    中等屏幕上的中侧边栏和小屏幕上的标题栏
+  #    超大的侧边栏在特大屏幕上滑动，并且在所有较低的屏幕上都显示较大的侧边栏（默认）
+  
+  # 2: Display large sidebar on large screen, medium sidebar on medium screen and
+  #    header bar on small screen and large sidebar is swiped
+  # 2：在大屏幕上显示大型侧栏，在中型屏幕上显示中型侧栏和
+  #    小屏幕上的标题栏和大型侧栏会被轻扫
+  
+  # 3: Display medium sidebar on large and medium screen and header bar on small screen and
+  #    medium sidebar is swiped
+  # 3: 在大屏幕和中屏幕上显示媒体侧栏，在小屏幕上显示标题栏滑过中侧边栏
+  
+  # 4: Display header bar on all screens, extra large sidebar is swiped on extra large screen and
+  #    large sidebar is swiped on all lower screens
+  # 4：在所有屏幕上显示标题栏，超大的侧边栏在特大屏幕上滑动并显示在所有较低屏幕上都会显示大侧边栏
+  
+  # 5: Display header bar on all screens and large sidebar is swiped on large screen
+  # 5：在所有屏幕上显示标题栏，在大屏幕上显示大型侧栏
+  
+  # 6: Display header bar on all screens and medium sidebar is swiped
+  # 6：显示所有屏幕和中等侧栏上的标题栏
+  
+  sidebarBehavior = 2
+
+  # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
+  # 你的博客封面图片。我强烈建议您使用CDN来加快页面的加载速度。
+  # There is many free CDN like Cloudinary or you can also use indirectly
+  # 有许多像Cloudinary一样的免费CDN，或者您也可以间接使用
+  # by using services like Google Photos.
+  # 使用Google相册等服务。
+  # Current image is on AWS S3 and delivered by AWS CloudFront.
+  # 当前图像位于AWS S3上，由AWS CloudFront提供。
+  # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
+  # 如果你不能或不想构建主题，请将你的图像放在`static/_images/`（开发）文件夹或`source/assets/images/
+  # and use relative url : `your-image.png`
+  # 并使用相对URL：`your-image.png`
+  
+  # 注意,这个是左侧主菜单的背景图
+  coverImage = "c.jpg"
+
+  # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
+  # 在帖子结尾处显示包含照片变量的图片库（false：已禁用，true：已启用）
+  imageGallery = true
+
+  # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
+  # 在索引页面上显示每篇文章的缩略图图像（false：禁用，true：启用）
+  thumbnailImage = true
+  
+  # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
+  # 在索引页面右侧显示缩略图(`right`, `left` or `bottom`)
+  
+  # Set this value to `right` if you have old posts to keep the old style on them
+  # 如果您有旧帖子保留旧样式，请将此值设置为“right”
+  
+  # and define `thumbnailImagePosition` on a post to overwrite this setting
+  # 并在帖子中定义`thumbnailImagePosition`以覆盖此设置
+  thumbnailImagePosition = "left"
+  
+  # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
+  # 如果没有缩略图图像作为缩略图图像，自动选择封面图像或帖子图库中的第一张图片
+  # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
+  # 如果您的旧帖子使用封面图片或第一张图片作为缩略图图片，请将此值设置为“true”
+  # and set `autoThumbnailImage` to `false` on a post to overwrite this setting
+  # 并在帖子上将`autoThumbnailImage`设置为'false`以覆盖此设置
+  autoThumbnailImage = true
+
+  # Your favicon path, default is "/favicon.png"
+  # 您的图标路径，默认为“/favicon.png”
+  # favicon = "favicon.png"
+
+  # Header configuration
+  # The link at the right of the header is customizable
+  # You can add a link (as an icon) at the right of the header instead of the author's gravatar image or author's picture.
+  # By default, author's gravatar or author's picture is displayed.
+       #url: /#search
+       #icon: search
+       #class: st-search-show-outputs
+
+  # Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
+  # they have to be referred from static root. Example
+  # [[params.customCSS]]
+  #   href = "css/mystyle.css"
+
+  # Custom JS. Put here your custom JS files. They are loaded after the theme JS;
+  # they have to be referred from static root. Example
+  # [[params.customJS]]
+  #   src = "js/myscript.js"
+
+  # Display `Next` on left side of the pagination, and `Prev` on right side one.
+  # If you set this value to `true`, these positions swap.
+   swapPaginator = true
+
+  # Sharing options
+  # Comment and uncomment to enable or disable sharing options
+  # If you wanna add a sharing option, read user documentation :
+  # Tranquilpeak configuration > Theme configuration > sharing-options
+  [[params.sharingOptions]]
+    name = "Facebook"
+    icon = "fa-facebook-official"
+    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+
+  [[params.sharingOptions]]
+    name = "Twitter"
+    icon = "fa-twitter"
+    url = "https://twitter.com/intent/tweet?text=%s"
+
+  [[params.sharingOptions]]
+    name = "Google+"
+    icon = "fa-google-plus"
+    url = "https://plus.google.com/share?url=%s"
+
+  [params.header.rightLink]
+    class = ""
+    icon = ""
+    url = "/#about"
+
+  # Customize link of author avatar in sidebar
+  # [params.sidebar.profile]
+  #   url = "/#about"
+
+  # Customize copyright value "© 2017 <CUSTOMIZATION>. All Rights Reserved"
+  # [params.footer]
+  #   copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
