@@ -28,12 +28,29 @@ coverSize: partial
 comment: true
 ---
 
+
+
+<!--toc-->
+
 ## 原因
+
 ###	一. 首先,为什么要用这么复杂的标题?  
 
 为什么标题会这么复杂呢？原因很简单。我自己被搞昏了，为了体现我的眩晕程度，所以用了这个复杂的名字。
 
 另外，还有一个最重要的原因：本博内容本来就容易让人昏，并且本博也不是给别人看的，只是为了怕自己忘记而写的教程笔记而已。
+
+## 目的
+
+这么容易让人发昏的目的是什么呢?
+
+目的很简单,一个字"懒"
+
+在本地计算机上写博客,然后推送到GITHUB上，让Github Webhook push 给VPS Caddy.server,然后Caddy.git pull Github内容修改,最后Caddy.hugo自动生成静态页面.
+
+这样说有点绕,还是上个思维导图吧
+
+![思维导图](https://mile3-1253674458.cos.ap-chengdu.myqcloud.com/assets/assets/01.png)
 
 ### 二. 为什么要用Hugo
 
@@ -284,7 +301,8 @@ git push origin master
 5. 然后修改/etc/caddy/Caddyfile文件
 
 6. ```yaml
-blog.3mile.top {
+  blog.3mile.top {
+  ```
 #tls mile3@gmail.com
 git github.com/mile3033/hugo . {
 	repo github.com/mile3033/hugo
@@ -307,7 +325,7 @@ git github.com/mile3033/hugo . {
    sudo chown -R caddy:root /etc/ssl/caddy
    sudo chmod 0770 /etc/ssl/caddy
    sudo chown -R root:caddy /etc/caddy
-   ```
+```
 
 9. 这时先不打开Caddy服务,或都是先不要运行Caddy
 
