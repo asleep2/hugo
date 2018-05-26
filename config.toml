@@ -19,7 +19,7 @@
 # 对于开发者，如果你修改这个主题，把你的图片放在`source / images`文件夹中
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://3mile.top/"
+baseURL = "https://blog.3mile.top/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "3mile博客"
