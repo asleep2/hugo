@@ -79,7 +79,10 @@ python -V# 正常情况下应该返回 Python 2.7.x # 如果返回命令找不�
 在使用 SimpleHTTPServer 开放HTTP服务后，**进入你开放HTTP服务的文件夹内**，然后生成一个 100MB的测试文件。
 
 ```
-dd if=/dev/zero of=Test bs=1M count=100# 100MB文件太小，测试不过瘾？那只需要把最后的数字改成你想要的，比如 500=500MBdd if=/dev/zero of=Test bs=1M count=500# Test就是生成的测试文件的文件名，1M是每次写入1M大小，500是写入500次，也就是名为Test的500MB大小文件。
+dd if=/dev/zero of=Test bs=1M count=100# 100MB
+# 文件太小，测试不过瘾？那只需要把最后的数字改成你想要的，比如 500=500MB
+dd if=/dev/zero of=Test bs=1M count=500
+# Test就是生成的测试文件的文件名，1M是每次写入1M大小，500是写入500次，也就是名为Test的500MB大小文件。
 ```
 
 最后，我们打开` http://VPS_IP:端口 `即可看到虚拟主机文件夹内的文件了，开始下载名为 Test的文件测速吧！
@@ -99,7 +102,8 @@ Caddy是一个Go语言编写的很简单的 HTTP Server，配置文件异常简�
 ### 部署方法：
 
 ```
-wget -N --no-check-certificate https://softs.fun/Bash/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager # 如果上面这个脚本无法下载，尝试使用备用下载：wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
+wget -N --no-check-certificate https://softs.fun/Bash/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager 
+# 如果上面这个脚本无法下载，尝试使用备用下载：wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
 ```
 
 安装Caddy成功后，继续新建一个虚拟主机文件夹，
@@ -113,7 +117,14 @@ mkdir /usr/local/caddy/www && mkdir /usr/local/caddy/www/speeder
 写入配置到 Caddy 配置文件，注意下面这六行要一起复制粘贴，不是一行一行复制！
 
 ```
-# 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！echo ":80 { root /usr/local/caddy/www/speeder timeouts none gzip browse}" > /usr/local/caddy/Caddyfile# 如果要绑定域名，只要把上面第一行的[ :80 { ]改成域名比如[ http://tooyo.ml { ]即可(不需要加端口号了)#
+# 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！
+echo ":80 {
+root /usr/local/caddy/www/speeder
+timeouts none
+gzip
+browse
+}" > /usr/local/caddy/Caddyfile
+# 如果要绑定域名，只要把上面第一行的 :80 { 改成域名比如[ http://tooyo.ml { ]即可(不需要加端口号了)#
 ```
 
 上面的代码执行完后，启动 Caddy即可。
@@ -127,7 +138,11 @@ mkdir /usr/local/caddy/www && mkdir /usr/local/caddy/www/speeder
 然后我们进入 虚拟主机文件夹，并下载 测速文件：
 
 ```
-cd /usr/local/caddy/www/speederdd if=/dev/zero of=Test bs=1M count=100# 100MB文件太小，测试不过瘾？那只需要把最后的数字改成你想要的，比如 500=500MBdd if=/dev/zero of=Test bs=1M count=500# Test就是生成的测试文件的文件名，1M是每次写入1M大小，500是写入500次，也就是名为Test的500MB大小文件。
+cd /usr/local/caddy/www/speederdd 
+if=/dev/zero of=Test bs=1M count=100
+# 100MB文件太小，测试不过瘾？那只需要把最后的数字改成你想要的，比如 500=500MB
+dd if=/dev/zero of=Test bs=1M count=500
+# Test就是生成的测试文件的文件名，1M是每次写入1M大小，500是写入500次，也就是名为Test的500MB大小文件。
 ```
 
 最后，我们打开` http://VPS_IP `即可看到虚拟主机文件夹内的文件了，开始下载名为 Test的文件测速吧！
